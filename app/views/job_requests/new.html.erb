@@ -1,0 +1,88 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+    <%= render '/shared/nav_jobrequest' %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <div class="row">
+      <div class="col-sm-10 col-sm-offset-2">
+        <%= form_for (@job_request) do |f| %>
+          <div class="row">
+            <div class="col-sm-6 well" style="margin-bottom: 100px;">
+              <h2 class="page-header">New Job request</h2>
+              <%= f.text_field :name_customer, placeholder: "Name Customer", required: "true" %><br/>
+              <%= f.select :department, required: "true" do %><br/>
+         <div class="row navbar navbar-inverse navbar-fixed-bottom" style="height: 100px;">
+  <!-- footer  -->
+  <%= render "/shared/footer" %>
+</div>
+     <%= content_tag(:option, "Department", value:"") %>
+              <% @departments.each do |d| %>
+                <%= content_tag(:option, d.name, value: d.name) %>
+                <% end %>
+              <% end %><br/>
+              <%= f.email_field :email, placeholder: "E-mail" %><br/>
+              <%= f.telephone_field :telephone, placeholder: "Telephone" %><br/>
+              <%= f.select :priority, required: "true" do %>
+                    <% [["priority",""],["High","High"],["Medium","Medium"],["Low","Low"]].each do |c| %>
+                      <%= content_tag(:option, c.first, value: c.last) %>
+                      <% end %>
+                  <% end %><br/>
+                  <%= f.text_field :account_charge, placeholder: "Account charge" %><br/>
+                  <%= f.number_field :cash, placeholder: "Cash" %><br/>
+                  <%= f.text_field :device_name, placeholder: "Device name", required: "true"%><br/>
+                  <%= f.text_field :model, placeholder: "Model", required: "true" %><br/>
+                  <%= f.select :parts_atteched , required: "true" do %><br/>
+                    <% [["Parts Atteched",""],["Power Supply","Power Supply"],["Extend Divices","Extend Divices"],["USB Flash Drives","USB Flash Drives"],["Others","Others"]].each do |c| %>
+                      <%= content_tag(:option, c.first, value: c.last) %>
+                      <% end %>
+                  <% end %><br/>
+                  <%= f.text_area :description_problem, placeholder: "Job Description - Problem", required: "true" %><br/>
+                  <h6>Date Arrival</h6>
+                  <%= f.date_field :date_arrive, placeholder: "Date Arrival: yyyy-mm-dd", required: "true" %><br/>
+                  <%= f.hidden_field :user_id, value: "#{@session}"%>
+                  <%= f.hidden_field :description_solution, value: "not solve"%>
+                  <%= f.hidden_field :time_spent, value: "0"%>
+                  <%= f.hidden_field :date_return, value: "0000-00-00"%>
+                  <%= f.hidden_field :statut, value: "not"%>
+                  <button type="submit" class="btn btn-success botton">Submit</button>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <style>
+      
+      select{
+        width: 96%;
+        height: 40px;
+        margin: 4px;
+      }
+
+      textarea{
+        width: 96%;
+        height: 100px;
+        margin: 4px;
+      }
+      div input{
+        width: 96%;
+        height: 40px;
+        margin: 4px;
+        padding: 10px;
+      }
+      .botton{
+        width: 96%;
+        height: 40px;
+        margin: 4px; 
+      }
+    </style>
+  </div>
+
+

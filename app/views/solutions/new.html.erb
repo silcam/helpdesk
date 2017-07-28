@@ -1,0 +1,71 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+     <%= render '/shared/nav_jobrequest' %>
+  </div>
+
+  <div class="col-sm-9">
+        <h2 class="page-header">Jobs not resolve list</h2>
+        <table class="table  table-striped">
+            <tr>
+                <td>Customer Name</td>
+                <td>Department</td>
+                <td>Is work</td>
+                <td>Priority</td>
+                <td>Telephone</td>
+                <td>E-mail</td>
+                <td>Resolve</td>
+                <td>Statut</td>
+            </tr>
+            <% @solutions.each do |c| %>
+            <tr>
+                <td><%= c.name_customer%></td>
+                <td><%= c.department%></td>
+                <td><%= c.device_name + " / "+ c.model%></td>
+                <td><%= c.priority%></td>
+                <td><%= c.telephone %></td>
+                <td><%= c.email %> </td>
+                <td><a href="/job_requests/<%=c.id%>">Resolve</a></td>
+                <td><%= image_tag "close.png" %></td>
+            </tr>
+            <% end %>
+        </table>
+      </div>
+    </div>
+    <!-- section  -->
+    
+  </div>
+ <style>
+      
+      select{
+        width: 96%;
+        height: 40px;
+        margin: 4px;
+        font-size: 15px;
+        padding: 10px;
+        font-weight: bold;
+      }
+
+      textarea{
+        width: 96%;
+        height: 100px;
+        margin: 4px;
+      }
+      div input{
+        width: 96%;
+        height: 40px;
+        margin: 4px;
+        padding: 10px;
+      }
+      .boutton{
+        width: 96%;
+        height: 40px;
+        margin: 4px; 
+      }
+    </style>

@@ -1,0 +1,53 @@
+<nav class="navbar navbar-inverse">
+    <h4 style="color: white;"> --> <span class="text-info">Silcam</span> >>> <span class="text-warning">CS-Helpdesk</span></h2>
+</nav>
+<div class="row">
+    <div class="col-sm-3 col-sm-offset-1">
+        <h3 class="page-header text-danger">Users list</h3>
+        <p class="alert-danger">
+            This table should not, in principle, be displayed. It's just for testing the application
+        </p>
+        <table class="table table-striped">
+            <tr>
+                <td>Login</td>
+                <td>Password</td>
+                <td>Privilege</td>
+            </tr>
+            <% @users.each do |user| %>
+              <tr>
+                  <td><%= user.login %></td>
+                  <td><%= user.password %></td>
+                  <td><%= user.privilege %></td>
+              </tr>
+             <% end %>
+        </table>
+    </div>
+    <div class="col-sm-3 col-sm-offset-1 well" >
+        <h3 style="text-align:center;"> SIL-Cameroon <br/><%= image_tag "silcambig.png" %> </h3>
+        <h4 class="text-info" style="text-align: center;">Sign In</h4>
+        <%= form_tag "/connexion", method: "post" do %>
+          <%= image_tag "user.png" %> <input type="text" name="login" placeholder="enter login"><br/>
+          <%= image_tag "lock-solid.png" %> <input type="password" name="password" placeholder="Password"><br/>
+          <button type="submit" class="btn btn-info">Sign In</button>
+        <% end %>
+    </div>
+</div>
+<style>
+  input{
+      width: 97%; 
+      height: 40px;
+      margin: 2px;
+      padding: 5px;
+  }
+    button{
+        width: 97%; 
+        height: 40px;
+        margin: 2px;
+      
+    }
+
+    form img {
+        height: 25px;
+        width: 25px;
+    }
+</style>

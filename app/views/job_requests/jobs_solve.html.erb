@@ -1,0 +1,67 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2" style=" margin-top:35px;">
+    <!-- nav  -->
+    <%= render '/shared/nav_jobrequest' %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+      <h2 class="page-header">Job Requests list</h2>
+      <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">All commissions</div>
+        <table class="table table-striped">
+          <tr>
+            <td>Customer name</td>
+            <td>Department</td>
+            <td>Priority</td>
+            <td>Device name</td>
+            <td>Model</td>
+            <td>Date arrival</td>
+            <td>Record By</td>
+            <td>Detail</td>
+            <td>Solution</td>
+            <td></td>
+          </tr>
+          <% @jobs.each do |j| %>
+            <tr>
+            <td><%= j.name_customer%></td>
+            <td><%= j.department%></td>
+            <td><%= j.priority%></td>
+            <td><%= j.device_name%></td>
+            <td><%= j.model%></td>
+            <td><%= j.date_arrive%></td>
+            <td><a href="/users/<%=@current_user.id%>"><%= @users.find(@current_user.id).last_name%></a></td>
+            <td><a href="/job_requests/<%=j.id%>">Description</a></td>
+            <td>
+              <% if j.statut == "solve" %>
+               <%= image_tag "succes.png" %>
+              <% else %>
+               <%= image_tag "close.png" %>
+              <% end %>
+            
+            </td>
+            <td>
+              <% if @users.find(@current_user.id).privilege =="root" %>
+                <%= form_tag "/job_requests/#{j.id}", method: "delete" do %>
+                  <button type="submit">delete</button>
+                <% end %>
+              <% else %>
+                 <span title = "we are not root">delete</span>
+              <% end %>
+            </td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+  </div>
+</div>
+
+
+

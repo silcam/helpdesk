@@ -1,0 +1,23 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2 well" style=" margin-top:20px;">
+    <!-- nav  -->
+    <h2>cool</h2>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <h2 class="page-header">View Description User</h2>
+    <div class="row">
+        <p><%= @user.last_name %></p>
+    </div>
+  </div>
+<div class="row navbar navbar-inverse navbar-fixed-bottom" style="height: 100px;">
+  <!-- footer  -->
+  <%= render "/shared/footer" %>
+</div>

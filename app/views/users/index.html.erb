@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-sm-3 col-sm-offset-4">
+        <h1 class="page-header"><%= image_tag "root.ico" %></h1>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Root Authentificate</h3>
+            </div>
+            <div class="panel-body">
+                  <h4 class="text-info" style="text-align: center;">Enter root password</h4>
+                    <%= form_tag "/users", method: "post" do %>
+                   <input type="password" name="password" placeholder=" Root Password" style="height:40px; width:100%;"><br/>
+                    <button type="submit" class="btn btn-info" style="height:40px; width:100%; margin-top: 5px;">Sign In</button>
+                    <a href="/connexion/new">Return Home</a>
+                    <% end %>
+            </div>
+        </div>
+    </div>
+</div>

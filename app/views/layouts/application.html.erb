@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Helpdesk</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="row">
+      <div class="col-lg-5 col-lg-offset-4 alert-success">
+        <%= flash[:info] %>
+      </div>
+      
+    </div>
+    <%= yield %>
+  </body>
+</html>

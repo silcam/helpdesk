@@ -1,0 +1,94 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+      <%= render '/shared/nav_devices' %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <div class="row">
+      <h3 class="page-header text-info">Add Device</h3>
+      <%= form_tag "/devices", method: :post do %>
+        <input type="text" name="name" placeholder="Device Name" required />
+        <input type="text" name="model" placeholder="model" required/>
+        <select name="category" required>
+          <option value="">category</option>
+          <option value="hardware">Hardware</option>
+          <option value="software">Software</option>
+          <option value="network">Network</option>
+          <option value="electronic">Electronic</option>
+          <option value="electricity">Electricity</option>
+          <option value="other">Other</option>
+        </select>
+        <textarea name = "description" placeholder="Description Device"></textarea>
+        <input type="number" name="stock" placeholder="Quantity" required/>
+        <input type="hidden" name="user_id" value="<%= @current_user.id %>"/>
+        <button type="submit" class="btn btn1">Add Device</button>
+      <% end %>
+    </div>
+    <div class="row">
+      <h3 class="page-header">Equipement Park</h3>
+      <table class="table table-striped">
+        <tr>
+          <td>Name</td>
+          <td>Model</td>
+          <td>Category</td>
+          <td>Description</td>
+          <td>Quantity</td>
+          <td>Stock statut</td>
+          <td>New stock</td>
+          <td>Detail</td>
+          <td>Delete</td>
+        </tr>
+        <% @devices.each do |d| %>
+         <tr>
+           <td><%= d.name %></td>
+           <td><%= d.model %></td>
+           <td><%= d.category %></td>
+           <td><%= d.description %></td>
+           <td><%= d.stock %></td>
+           <td>
+             <% if d.stock < 2 %>
+              <%= image_tag "close.png" %>
+             <% else %>
+               <% if d.stock < 6 %>
+                 <%= image_tag "warning.png" %>
+                <% else %>
+                 <%= image_tag "succes.png" %>
+                <% end %>
+             <% end %>
+           </td>
+           <td><a href="/devices/<%= d.id %>"><%= image_tag "update.png" %></a></td>
+           <td><a href="#">View</a></td>
+           <td>
+             <%= form_tag "/devices/#{d.id}", method: "delete" do %>
+                  <button type="submit"><%= image_tag "basket.png" %></button>
+                <% end %>
+           </td>
+         </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <style>
+    input{
+      height: 40px;
+      padding: 10px;
+    }
+    select{
+      height: 40px;
+    }
+    textarea{
+      height: 40px;
+      margin-bottom: -15px;
+    }
+    .btn1{
+      height: 40px;
+    }
+    </style>

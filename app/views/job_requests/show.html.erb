@@ -1,0 +1,76 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+     <%= render '/shared/nav_jobrequest' %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <div class="row">
+      <div class="col-sm-7 span7 well">
+        <h3 class=""><br/>Job description</h3>
+        
+        <table class="table">
+          <tr>
+            <td rowspan = 4><%= image_tag "customer.ico" %></td>
+            <td><h4>customer: <%= @job.name_customer %> </h4></td>
+            <td><h4>Departmen: <%= @job.department %></h4></td>
+          </tr>
+          <tr>
+            <td><h6> Telephone: <%= @job.telephone %></h6></td>
+            <td><h6> Email: <%= @job.email %></h6></td>
+          </tr>
+          <tr>
+            <td><h6> Date arrive Job: <%= @job.date_arrive %></h6></td>
+            <td><h6> Priority: <%= @job.priority %></h6></td>
+          </tr>
+          <tr>
+            <td><h6> Account charge: <%= @job.account_charge %></h6></td>
+            <td><h6> Cash: 0<%= @job.cash %> $</h6></td>
+          </tr>
+          <tr>
+            <td><h6> Device: <%= @job.device_name %></h6></td>
+            <td><h6> model: <%= @job.model %></h6></td>
+            <td><h6> Job Description: <%= @job.description_problem%></h6></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="col-sm-5 span5">
+        <h3 class="page-header">Resolve job</h3>
+        <%= image_tag "customer.png" %>
+        <%= form_tag "/job_requests/#{@job.id}", method: :patch do %>
+        <textarea name ="description_solution" placeholder="Description solution" required class="input_solve"></textarea><br/>
+        <input type="number" name="time_spent" placeholder="Time spent in Hour(s)" required class="input_solve"/><br/>
+        <label>Return Date</label><br/>
+        <input type="date" name="date_return" placeholder="Date Arrive" required class="input_solve"/><br/>
+        <input type="hidden" name="statut" value="solve"/>
+        <button type="submit" class="btn btn-primary boutton" style="float: right;">Solve</button>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<style>
+  .input_solve{
+    width: 100%;
+    height: 40px;
+    margin: 3px;
+  }
+  .span7 img{
+    height: 150px; 
+    width: 150px;
+    float: left;
+  }
+   .span5 img{
+    height: 120px; 
+    width: 100px;
+    float: left;
+  }
+  </style>
+

@@ -1,0 +1,53 @@
+<div class="row row2">
+    <div class="row1"> 
+    </div>   
+  <%= image_tag "user_connect.png" %>
+  <h4 class="text-center"><%= @current_user.last_name + " " + @current_user.first_name %></h4>
+  <h6 class="text-center">Privilege: <%= @current_user.privilege %></h6> 
+  <h6 class="text-center">E-mail: <%= @current_user.email %></h6> 
+  <h6 class="text-center"> contact: <%= @current_user.telephone %></h6>   
+</div><br/><br/>
+<div class="panel panel-default panel1">
+  <div class="panel-heading"><a href="#">By Author</a></div>
+  <div class="panel-body">
+     <%= image_tag "max.jpg" %>
+     <h6 class="text-center">Trainer at SIL-cam</h6>
+     <a href="#" class="btn btn-primary">Read more...</a>
+  </div>
+</div>
+
+<style>
+.row1{
+    background-color: skyblue;
+    margin:20px;
+    padding: 20px;
+    height: 120px;
+    border-bottom: 3px solid white;
+}
+
+.row2 img{
+    height: 120px;
+    border: 2px solid white;
+    border-radius: 100px;
+    margin-left: 5%;
+    box-shadow: 2px 1px 2px silver;
+    position: relative;
+    top: -70px;
+    left: 23%;
+    background-color: white;
+    margin-bottom: -50px;
+
+}
+
+.row2{
+    background-color: whitesmoke;
+}
+.panel1 img{
+  height: 150px;
+  width: 150px;
+  border-radius: 100px;
+  border: 3px solid white;
+  box-shadow: 2px 2px 1px silver;
+  
+}
+</style>

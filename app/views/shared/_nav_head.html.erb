@@ -1,0 +1,55 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <ul class="nav navbar-nav">
+    <li><a href="" title="home" style="color: white; font-weight: bold"> --> <span class="text-info">Silcam</span> >> <span class="text-warning">CS-Helpdesk</span></a></li>
+     <li><a href="/connexion/new" title="home"><%= image_tag "home.png" %> Home </a></li>
+     <li><a href="/job_requests" title="view">Job Request </a></li>
+     <li><a href="/devices" title="view list"> Device parking</a></li>
+     <li><a href="/sales" title="sale Device">Sale</a></li>
+     <li><a href="/documentations" title="access to documentation">Help ?</a></li>
+  </ul>
+  <div style="float: right;">
+    <table>
+      <tr>
+        <td>
+          <%= form_tag "/", method: :patch do %>
+            <table>
+              <tr>
+                <td> <input type="search" name="key_word" placeholder="Enter key word" class="input"/></td>
+                <td> <button class="btn btn-primary"><%= image_tag "echer.png" %></button></td>
+              </tr>
+            </table>
+           <% end %>
+        </td>
+        <td>
+         <a href="/sales" style="border: 1px solid silver; padding: 10px; margin-left:10px; margin-right:10px; color:white;"><%= image_tag "user_connect.png" %> <%= @current_user.last_name %></a>
+        </td>
+        <td>
+          <%= form_tag "/connexion/#{@current_user.id}", method: :delete do %>
+             <button type="submint" class="btn btn-danger button">Log out</button>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</nav><br/>
+<style>
+  .input{
+    height: 45px;
+    margin-top: 2px;
+  }
+  .button{
+    height: 40px;
+    margin-bottom: 3px;
+    margin-right: 3px;
+  }
+
+  table img{
+    width: 30px;
+    height: 30px;
+  }
+
+  li img{
+    width: 20px;
+    height: 20px;
+  }
+  </style>

@@ -1,0 +1,45 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+      <%= render '/shared/nav_devices' %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <div class="row"><br/><br/>
+        <div class="col-sm-4 col-sm-offset-3 well">
+            <h4 class="page-header">You will edit Stock <%= @device.name + " " + @device.model %></h4>
+            <p>
+                Description: <%= @device.description %>
+            </p>
+            <%= form_tag "/devices/#{@device.id}", method: :patch do %>
+                <input type="number" name="stock" placeholder="Input new Stock" required/>
+                <input type="hidden" name="last_stock" value="<%= @device.stock %>"/>
+                <button type="submit" class="btn btn-primary btn1">Update</button>
+            <% end %>
+        </div>
+        
+    </div>
+  </div>
+  <style>
+    input{
+      height: 40px;
+      padding: 10px;
+    }
+    select{
+      height: 40px;
+    }
+    textarea{
+      height: 40px;
+      margin-bottom: -15px;
+    }
+    .btn1{
+      height: 40px;
+    }
+    </style>

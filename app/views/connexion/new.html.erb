@@ -1,0 +1,143 @@
+<div class="row">
+  <!-- header page  -->
+  <%= render  "shared/nav_head" %>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-2" style=" margin-top:30px;">
+    <!-- nav  -->
+    <%= render "shared/nav_home" %>
+  </div>
+
+  <div class="col-sm-9">
+    <!-- section  -->
+    <h1 class="page-header">Welcome Helpdesk</h1>
+    <div class="panel panel-info">
+      <div class="panel-heading">Dashboard</div>
+      <div class="panel-body">
+       <table class="table table-condensed">
+         <tr>
+           <td class="td1">
+            <%= image_tag "user_connect.png" %><br/>
+            <a href="/users" class="btn btn-info"><span class="badge"> 00<%= @users.size %> user(s)</span></a>
+           </td>
+           <td class="td1">
+             <%= image_tag "device.png" %><br/>
+            <a href="/devices" class="btn btn-primary"><span class="badge"> 00<%= @devices.size %> Epuipement(s)</span></a>
+           </td>
+           <td class="td1"><%= image_tag "jobs_form.png" %><br/>
+            <a href="/job_requests" class="btn btn-success"><span class="badge"> 00<%= @jobs.size %> Job(s) request</span></a>
+          </td>           
+           <td class="td1">
+             <%= image_tag "shoping.png" %><br/>
+            <a href="/sales" class="btn btn-warning"><span class="badge"> 00<%= @sales.size %> Sale(s)</span></a>
+           </td>
+          <td class="td1">
+             <%= image_tag "contact.png" %><br/>
+            <a href="/users" class="btn btn-info"> <span class="badge"> 00<%= @users.size %> contact(s)</span></a>
+           </td>
+          <td class="td1">
+             <%= image_tag "setting.png" %><br/>
+            <a href="/connexion/new" class="btn btn-danger"><span class="badge"> 006 params(s)</span></a><br/>
+           </td>
+         </tr>
+
+         <tr>
+           <td class="td1">
+             <a href="/users"><%= image_tag "user_add.png" %><br/>Add User</a><br/>
+           </td>
+           <td class="td1">
+             <a href="/devices"><%= image_tag "device_add.png" %><br/>New Device</a><br/>
+           </td>
+           <td class="td1">
+             <a href="/job_requests/new"><%= image_tag "job_add.png" %><br/>New Job</a><br/>
+           </td>
+             <td class="td1">
+             <a href="/users"><%= image_tag "contact_add.png" %><br/>New Contact</a><br/>
+           </td> 
+         </tr>
+       </table>
+      </div>
+    </div>
+
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h3 class="panel-title">Dashboard list</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-sm-10">
+           <table class="table table-striped">
+              <tr>
+                <td><%= image_tag "jobs_form.png" %></td>
+                <td><a href="/job_requests">Jobs List</a></td>
+                <td><span class="badge"> <%= @jobs.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "succes.png" %></td>
+                <td><a href="/solutions">Jobs solved list</a></td>
+                <td><span class="badge"> <%= @jobs.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "close.png" %></td>
+                <td><a href="/job_requests/new">Jobs not solved List</a></td>
+                <td><span class="badge"> <%= @jobs.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "device.png" %></td>
+                <td><a href="/devices">Epuipements List</a></td>
+                <td><span class="badge"> <%= @devices.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "close.png" %></td>
+                <td><a href="/devices/new">Devices statut low List</a></td>
+                <td><span class="badge"> <%= @devices.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "warning.png" %></td>
+                <td><a href="/devices/new">Devices statut warning List</a></td>
+                <td><span class="badge"> <%= @jobs.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "succes.png" %></td>
+                <td><a href="">Devices statut Good List</a></td>
+                <td><span class="badge"> <%= @devices.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "shoping.png" %></td>
+                <td><a href="/sales">Sales  List</a></td>
+                <td><span class="badge"> <%= @sales.size %></span></td>
+              </tr>
+              <tr>
+                <td><%= image_tag "user_connect.png" %></td>
+                <td><a href="/sales">Customers list  List</a></td>
+                <td><span class="badge"> <%= @sales.size %></span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        
+    </div>
+</div>
+
+</div>
+<style>
+ .td1{
+   text-align: center;
+   padding:10px;
+   border-radius: 5px;
+ } 
+
+ .td1:hover{
+   background-color: whitesmoke;
+   cursor: pointer;
+ }
+  .td1 img{
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+  }  
+</style>
+
+
